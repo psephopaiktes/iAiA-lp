@@ -1,12 +1,22 @@
 {
   "name": "iAiA-lp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Landing Page for [iAiA](https://github.com/psephopaiktes/iAiA).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/index.pug --open",
+    "build": "rm -rf dist && parcel build src/index.pug -d dist/LP  --no-cache --no-source-maps --public-url ./LP && mv dist/LP/index.html dist/index.html"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psephopaiktes/iAiA-lp.git"
+  },
+  "author": "Akira HIRATA",
+  "homepage": "https://github.com/psephopaiktes/iAiA-lp#readme",
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "pug": "^2.0.4",
+    "sass": "^1.24.0",
+    "typescript": "^3.7.4"
+  }
 }
