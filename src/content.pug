@@ -17,23 +17,28 @@ header.global-header
 
 
 section.free
-  h2 無料のTRPGサポートアプリ
+  h2 無料の<br>TRPGサポートアプリ
+  include img/keyart.svg
   p iAiAは『クトゥルフ神話TRPG』を遊ぶときに役立つサポートアプリです。難しいイメージがあるTRPGを、誰でもかんたんに遊べるようにするため作成されました。
 
 section.cross-device
-  h2 どのデバイスでもいますぐ使える
-  //- img(src="img/cross-device.png", alt="PC、スマートフォンでの使用イメージ")
+  h2 どのデバイスでも<br>いますぐ使える
+  picture
+    source(srcset="img/sp/cross-device.png" media="(max-width: 480px)")
+    img( src="img/pc/cross-device.png" alt="PC、スマートフォンでの使用イメージ")
   p ブラウザ上で動くWebアプリだから、パソコン・スマートフォン・タブレットでいますぐに利用できます。PWA技術に対応しているので、ダウンロードしてオフラインでアプリのように使用することもできます。
 
 section.tools-free
-  h2 ダイスもキャラクターシートも必要ありません
+  h2 ダイスも<br>キャラクターシートも<br>必要ありません
   p ゲームキーパーとプレイヤー、ストーリーさえ揃えばすぐにセッション開始。キャラクター作成もあっという間です。
 
-section.cross-device
-  h2 公式ルールブックの最新版に対応
-  //- img(src="img/cross-device.png", alt="新クトゥルフ神話TRPG ルールブック")
+section.book
+  h2 公式ルールブックの<br>最新版に対応
+  picture
+    source(srcset="img/sp/book.jpg" media="(max-width: 480px)")
+    img( src="img/pc/book.jpg" alt="新クトゥルフ神話TRPG ルールブック")
   p iAiAはケイオシアム社の公式ルールに準拠して作成されています。2019年に発売された「新クトゥルフ神話TRPG ルールブック」に対応ずみです。
-  p: i 出典: サンディ・ピーターセン, ポール・フリッカー, ほか (2019). 新クトゥルフ神話TRPG ルールブック KADOKAWA
+  p: a(href="https://amzn.to/39DU9ta" target="_brank"): i 画像出典: サンディ・ピーターセン, ポール・フリッカー, ほか (2019). 新クトゥルフ神話TRPG ルールブック KADOKAWA
 
 footer.global-footer
   h2: include img/logo-short.svg

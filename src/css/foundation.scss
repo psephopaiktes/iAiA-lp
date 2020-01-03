@@ -1,3 +1,4 @@
+// CONST
 $COLOR_THEME: #0fe;
 $COLOR_ACCE: #0cf;
 $COLOR_BASE: #141b1e;
@@ -9,6 +10,7 @@ $WIDTH_PC: 1440px;
 
 $TRANSITION: 0.2s ease-out;
 
+// MIXIN
 @mixin BEFORE_AFTER {
   content: "";
   display: block;
@@ -17,6 +19,9 @@ $TRANSITION: 0.2s ease-out;
   height: 100%;
 }
 
+// UTILITY
+
+// RESET & BASIC STYLE
 html {
   background-color: $COLOR_BASE;
 }

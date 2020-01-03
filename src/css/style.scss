@@ -13,7 +13,6 @@
   }
   &::before {
     @include BEFORE_AFTER;
-    background: #ff000088;
     background: radial-gradient(
         circle farthest-side at top center,
         rgba($COLOR_BASE, 0) 0%,
@@ -32,7 +31,6 @@
     height: 100%;
     img {
       height: inherit;
-      width: auto;
       object-fit: cover;
     }
   }
@@ -50,7 +48,6 @@
       left: -44px;
       fill: $COLOR_MAIN;
       height: 40px;
-      width: auto;
     }
     a {
       display: block;
@@ -87,7 +84,7 @@
       line-height: 1;
       text-align: center;
       letter-spacing: 0.6em;
-      color: rgba($COLOR_MAIN, 0.5);
+      color: rgba($COLOR_MAIN, 0.6);
       font-weight: 300;
     }
   }
@@ -97,7 +94,7 @@
     display: flex;
     left: 24px;
     li:nth-child(2) {
-      margin: 24px 0 0 -8px;
+      margin: 26px 0 0 -8px;
     }
     a {
       display: block;
@@ -129,12 +126,174 @@
   }
 }
 
-section {
-  margin-top: 320px;
+body > section {
+  // Trapezoid-Section CSS ↓
+  --gap: 128px;
+  @media (min-width: $WIDTH_SP) {
+    --gap: 160px;
+  }
+  margin-top: 64px;
+  padding: 0 48px 32px;
+  position: relative;
+  > * {
+    position: relative;
+  }
+  &::before {
+    @include BEFORE_AFTER;
+    top: calc(-0.5 * var(--gap));
+    left: 0;
+    height: calc(100% + var(--gap));
+    background-position: center;
+    background-size: cover;
+  }
+  &:nth-child(odd)::before {
+    clip-path: polygon(
+      0 0,
+      100% var(--gap),
+      100% calc(100% - var(--gap)),
+      0% 100%
+    );
+  }
+  &:nth-child(even)::before {
+    clip-path: polygon(
+      0 var(--gap),
+      100% 0,
+      100% 100%,
+      0% calc(100% - var(--gap))
+    );
+  }
+  // Trapezoid-Section CSS ↑
+
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Noto Sans CJK JP", "Meiryo", "メイリオ", "Segoe UI",
+    sans-serif;
+  &:nth-child(odd)::after {
+    @include BEFORE_AFTER;
+    top: calc(-0.5 * var(--gap));
+    left: 0;
+    height: calc(100% + var(--gap));
+    background-image: linear-gradient(
+      rgba($COLOR_THEME, 0.1),
+      rgba($COLOR_ACCE, 0.2)
+    );
+    backdrop-filter: blur(4px) grayscale(100%);
+    z-index: 0;
+    clip-path: polygon(
+      0 0,
+      100% var(--gap),
+      100% calc(100% - var(--gap)),
+      0% 100%
+    );
+  }
+  > * {
+    z-index: 1;
+  }
+  h2 {
+    margin-top: 0;
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.4;
+    color: $COLOR_MAIN;
+    text-shadow: 0 0 8px rgba(#000, 0.2);
+    br {
+      @media (max-width: 359px) {
+        display: none;
+      }
+    }
+    &::after {
+      @include BEFORE_AFTER;
+      height: 8px;
+      width: 74px;
+      bottom: 0;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20fill%3D%22none%22%20height%3D%228%22%20viewBox%3D%220%200%2074%208%22%20width%3D%2274%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%3E%3ClinearGradient%20id%3D%22a%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%2215.0348%22%20x2%3D%2234.7982%22%20y1%3D%22-.120602%22%20y2%3D%2232.0336%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230fe%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230cf%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20clip-rule%3D%22evenodd%22%20d%3D%22m0%208%204.62-8%204.62%208zm18.48-8-4.62%208-4.62001-8zm4.61%200-4.61%208h9.23zm13.86%200-4.62%208-4.62-8zm4.62%200-4.62%208h9.2399zm13.8599%200-4.62%208-4.62-8zm4.61%200-4.61%208h9.23zm13.86%200-4.62%208-4.62-8z%22%20fill%3D%22url(%23a)%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    }
+  }
+  &:nth-child(even) h2 {
+    text-align: right;
+    &::after {
+      right: 0;
+    }
+  }
+  &:nth-child(odd) h2 {
+    text-align: left;
+    &::after {
+      left: 0;
+    }
+  }
+  p {
+    margin-top: 24px;
+    color: rgba($COLOR_MAIN, 0.9);
+    font-weight: 300;
+  }
+}
+.free {
+  svg {
+    margin: -64px -32px -72px;
+    width: calc(100% + 64px);
+    max-width: initial;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 3px $COLOR_MAIN);
+    path {
+      stroke: $COLOR_MAIN;
+    }
+  }
+  &::before {
+    opacity: 0.2;
+    background-image: url(../img/sp/marble.jpg);
+    @media (min-width: $WIDTH_SP) {
+      background-image: url(../img/pc/marble.jpg);
+    }
+  }
+}
+.cross-device {
+  img {
+    width: calc(100% + 64px);
+    max-width: initial;
+    height: auto;
+    margin: 32px -32px 8px;
+  }
+  &::before {
+    opacity: 0.2;
+    background-image: url(../img/sp/cross-device.png);
+    @media (min-width: $WIDTH_SP) {
+      background-image: url(../img/pc/cross-device.png);
+    }
+  }
+}
+.tools-free {
+  &::before {
+    opacity: 0.6;
+    background-image: url(../img/sp/tools.jpg);
+    @media (min-width: $WIDTH_SP) {
+      background-image: url(../img/pc/tools.jpg);
+    }
+  }
+}
+.book {
+  img {
+    width: 120px;
+    height: auto;
+    margin: 32px calc(50% - 60px) 8px;
+    border: 2px solid $COLOR_MAIN;
+    box-shadow: 2px 8px 24px rgba($COLOR_BASE, 0.8);
+  }
+  p + p {
+    margin-top: 8px;
+    opacity: 0.5;
+  }
+  &::before {
+    opacity: 0.2;
+    background-image: url(../img/sp/book.jpg);
+    @media (min-width: $WIDTH_SP) {
+      background-image: url(../img/pc/book.jpg);
+    }
+  }
 }
 
 .global-footer {
-  margin: 500px 0 128px;
+  margin: 96px 0 128px;
   display: flex;
   align-items: center;
   justify-content: center;
