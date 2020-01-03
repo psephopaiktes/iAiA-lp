@@ -28,9 +28,10 @@ body {
   color: rgba($COLOR_MAIN, 0.9);
   line-height: 1.5;
   font-weight: 400;
-  font-family: "Avenir Next", "Avenir", "Hiragino Sans", -apple-system,
-    BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP",
-    "Noto Sans CJK JP", Meiryo, "メイリオ", "Segoe UI", sans-serif;
+  font-family: "Avenir Next", "Avenir", "SF Pro Text", "Robot", "Helvetica Neue",
+    "Helvetica", "Arial", "Hiragino Sans", -apple-system, BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Meiryo",
+    "メイリオ", "Segoe UI", sans-serif;
   font-smoothing: antialiased;
   font-feature-settings: "pkna";
   @media (min-width: $WIDTH_TAB) {
