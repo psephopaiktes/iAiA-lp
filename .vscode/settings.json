@@ -2,7 +2,7 @@
   "extensions.showRecommendationsOnlyOnDemand": false,
   "editor.formatOnSave": true,
   "search.exclude": {
-    "/dist": true
+    "/docs": true
   },
   "editor.tabSize": 2
 }

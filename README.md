@@ -1,4 +1,4 @@
 # iAiA-lp
 
 - Landing Page for [iAiA](https://github.com/psephopaiktes/iAiA).
-- `dist/index.html`と`dist/LP/*`を`iAiA/public`にコピーする
+- `docs/`の`index.html`と`LP/*`を`iAiA/public`直下にコピーする
