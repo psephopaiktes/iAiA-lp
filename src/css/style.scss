@@ -1,5 +1,214 @@
-$redColor: #ea5b54;
+@import "foundation";
 
-body {
-  background-color: $redColor;
+.global-header {
+  position: relative;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+  &::before {
+    @include BEFORE_AFTER;
+    background: #ff000088;
+    background: radial-gradient(
+        circle farthest-side at top center,
+        rgba($COLOR_BASE, 0) 0%,
+        rgba($COLOR_BASE, 0.6) 80%,
+        rgba($COLOR_BASE, 1) 100%
+      ),
+      linear-gradient(rgba($COLOR_BASE, 1), rgba($COLOR_BASE, 0) 20%);
+    z-index: 1;
+  }
+  .hero-back,
+  .hero-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    img {
+      height: inherit;
+      width: auto;
+      object-fit: cover;
+    }
+  }
+  .logos {
+    width: 140px;
+    height: 56px;
+    &::before {
+      @include BEFORE_AFTER;
+      border: 1px rgba($COLOR_MAIN, 0.1) solid;
+      transform: skew(-30deg);
+    }
+    h1 svg {
+      position: absolute;
+      top: -20px;
+      left: -44px;
+      fill: $COLOR_MAIN;
+      height: 40px;
+      width: auto;
+    }
+    a {
+      display: block;
+      margin: 16px 0 0 48px;
+      position: relative;
+      width: 144px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: rgba($COLOR_BASE, 0.8);
+      letter-spacing: 0.4em;
+      filter: drop-shadow(0 0 12px rgba($COLOR_THEME, 0.4))
+        drop-shadow(4px 4px 0 rgba($COLOR_ACCE, 0.5));
+      &::before {
+        @include BEFORE_AFTER;
+        z-index: 0;
+        clip-path: polygon(27px 0, 100% 0, calc(100% - 27px) 100%, 0 100%);
+        width: 100%;
+        height: 100%;
+        background: $COLOR_THEME;
+        z-index: -1;
+      }
+      &:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 12px rgba($COLOR_THEME, 0.6))
+          drop-shadow(4px 4px 0 rgba($COLOR_ACCE, 0.5));
+      }
+    }
+    & + p {
+      margin-top: 48px;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      letter-spacing: 0.6em;
+      color: rgba($COLOR_MAIN, 0.5);
+      font-weight: 300;
+    }
+  }
+  .sns-list {
+    position: absolute;
+    top: calc(100% - 24px);
+    display: flex;
+    left: 24px;
+    li:nth-child(2) {
+      margin: 24px 0 0 -8px;
+    }
+    a {
+      display: block;
+      width: 54px;
+      height: 48px;
+      background: rgba($COLOR_MAIN, 0.3);
+      clip-path: polygon(
+        12px 0,
+        calc(100% - 12px) 0,
+        100% 50%,
+        calc(100% - 12px) 100%,
+        12px 100%,
+        0 50%
+      );
+      &:hover {
+        background: rgba($COLOR_MAIN, 0.6);
+        svg {
+          transform: scale(1.2);
+        }
+      }
+    }
+    svg {
+      width: 36px;
+      height: 36px;
+      margin: 6px 0 0 9px;
+      fill: $COLOR_BASE;
+      transition: inherit;
+    }
+  }
+}
+
+section {
+  margin-top: 320px;
+}
+
+.global-footer {
+  margin: 500px 0 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h2 svg {
+    height: 32px;
+    width: auto;
+    fill: $COLOR_MAIN;
+    filter: drop-shadow(0 0 24px rgba($COLOR_THEME, 0.8));
+  }
+  .link-list {
+    margin-top: 24px;
+    li:nth-child(2) {
+      margin: -14px 0 0 117px;
+    }
+    li:nth-child(3) {
+      margin-top: -12px;
+    }
+    a {
+      display: block;
+      width: 120px;
+      height: 32px;
+      background: rgba($COLOR_MAIN, 0.3);
+      color: $COLOR_BASE;
+      text-align: center;
+      line-height: 32px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      clip-path: polygon(
+        8px 0,
+        calc(100% - 8px) 0,
+        100% 50%,
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0 50%
+      );
+      &:hover {
+        background: rgba($COLOR_MAIN, 0.6);
+        letter-spacing: 0.2em;
+      }
+    }
+  }
+  .copyright {
+    margin-top: 24px;
+    small {
+      color: rgba($COLOR_MAIN, 0.2);
+      font-size: 12px;
+    }
+  }
+  .fix-cta {
+    position: fixed;
+    bottom: 36px;
+    left: 32px;
+    z-index: 999;
+    width: calc(100vw - 64px);
+    height: 48px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $COLOR_THEME;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba($COLOR_BASE, 0.8);
+    letter-spacing: 0.4em;
+    border-radius: 16px;
+    box-shadow: 0 0 16px rgba($COLOR_THEME, 0.6);
+    svg {
+      fill: rgba($COLOR_BASE, 0.4);
+      margin: -3px -16px 0 8px;
+    }
+    &:hover {
+      letter-spacing: 0.5em;
+      bottom: 34px;
+    }
+  }
 }

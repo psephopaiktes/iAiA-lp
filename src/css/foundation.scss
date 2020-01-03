@@ -1,0 +1,86 @@
+$COLOR_THEME: #0fe;
+$COLOR_ACCE: #0cf;
+$COLOR_BASE: #141b1e;
+$COLOR_MAIN: #fff;
+
+$WIDTH_SP: 480px;
+$WIDTH_TAB: 960px;
+$WIDTH_PC: 1440px;
+
+$TRANSITION: 0.2s ease-out;
+
+@mixin BEFORE_AFTER {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  background-color: $COLOR_BASE;
+}
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: rgba($COLOR_MAIN, 0.9);
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Avenir Next", "Avenir", "Hiragino Sans", -apple-system,
+    BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Noto Sans CJK JP", Meiryo, "メイリオ", "Segoe UI", sans-serif;
+  font-smoothing: antialiased;
+  font-feature-settings: "pkna";
+  @media (min-width: $WIDTH_TAB) {
+    font-size: 14px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  border: none;
+  vertical-align: top;
+  max-width: 100%;
+}
+b {
+  font-weight: 700;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: $TRANSITION;
+}
+p a {
+  text-decoration: underline;
+}
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  color: inherit;
+  transition: $TRANSITION;
+}
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
