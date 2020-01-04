@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (min-width: $WIDTH_SP) {
+    height: 560px;
+    overflow: hidden;
+  }
   > * {
     position: relative;
     z-index: 1;
@@ -21,6 +25,15 @@
       ),
       linear-gradient(rgba($COLOR_BASE, 1), rgba($COLOR_BASE, 0) 20%);
     z-index: 1;
+    @media (min-width: $WIDTH_SP) {
+      background: radial-gradient(
+          circle farthest-side at top center,
+          rgba($COLOR_BASE, 0) 0%,
+          rgba($COLOR_BASE, 0.6) 80%,
+          rgba($COLOR_BASE, 1) 100%
+        ),
+        linear-gradient(rgba($COLOR_BASE, 0) 80%, rgba($COLOR_BASE, 1) 100%);
+    }
   }
   .hero-back,
   .hero-front {
@@ -33,14 +46,27 @@
       height: inherit;
       object-fit: cover;
     }
+    @media (min-width: $WIDTH_TAB) {
+      width: 100%;
+      height: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
   .logos {
     width: 140px;
     height: 56px;
+    @media (min-width: $WIDTH_TAB) {
+      width: auto;
+      height: auto;
+    }
     &::before {
       @include BEFORE_AFTER;
       border: 1px rgba($COLOR_MAIN, 0.1) solid;
       transform: skew(-30deg);
+      @media (min-width: $WIDTH_TAB) {
+        display: none;
+      }
     }
     h1 svg {
       position: absolute;
@@ -48,6 +74,10 @@
       left: -44px;
       fill: $COLOR_MAIN;
       height: 40px;
+      @media (min-width: $WIDTH_TAB) {
+        position: static;
+        height: 56px;
+      }
     }
     a {
       display: block;
@@ -63,6 +93,9 @@
       letter-spacing: 0.4em;
       filter: drop-shadow(0 0 12px rgba($COLOR_THEME, 0.4))
         drop-shadow(4px 4px 0 rgba($COLOR_ACCE, 0.5));
+      @media (min-width: $WIDTH_TAB) {
+        display: none;
+      }
       &::before {
         @include BEFORE_AFTER;
         z-index: 0;
@@ -86,13 +119,23 @@
       letter-spacing: 0.6em;
       color: rgba($COLOR_MAIN, 0.6);
       font-weight: 300;
+      @media (min-width: $WIDTH_TAB) {
+        color: rgba($COLOR_MAIN, 0.4);
+        font-size: 20px;
+        letter-spacing: 1.1em;
+        margin-top: 32px;
+      }
     }
   }
   .sns-list {
     position: absolute;
-    top: calc(100% - 24px);
     display: flex;
+    top: calc(100% - 24px);
     left: 24px;
+    @media (min-width: $WIDTH_SP) {
+      top: 48px;
+      left: 48px;
+    }
     li:nth-child(2) {
       margin: 26px 0 0 -8px;
     }
@@ -129,12 +172,29 @@
 body > section {
   // Trapezoid-Section CSS ↓
   --gap: 128px;
-  @media (min-width: $WIDTH_SP) {
+  @media (min-width: $WIDTH_TAB) {
     --gap: 160px;
   }
-  margin-top: 64px;
+  margin-top: calc(var(--gap) / 2);
+  z-index: 1;
   padding: 0 48px 32px;
   position: relative;
+  @media (min-width: $WIDTH_SP) {
+    margin-top: 24px;
+    padding: 0 calc(50% - 180px) 48px;
+  }
+  @media (min-width: $WIDTH_TAB) {
+    padding: 1px calc(50% - 400px) 64px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &:nth-child(odd) {
+      align-items: flex-end;
+    }
+    &:nth-child(even) {
+      align-items: flex-start;
+    }
+  }
   > * {
     position: relative;
   }
@@ -153,6 +213,14 @@ body > section {
       100% calc(100% - var(--gap)),
       0% 100%
     );
+    @media (min-width: $WIDTH_TAB) {
+      clip-path: polygon(
+        0 var(--gap),
+        100% 0,
+        100% 100%,
+        0% calc(100% - var(--gap))
+      );
+    }
   }
   &:nth-child(even)::before {
     clip-path: polygon(
@@ -161,6 +229,14 @@ body > section {
       100% 100%,
       0% calc(100% - var(--gap))
     );
+    @media (min-width: $WIDTH_TAB) {
+      clip-path: polygon(
+        0 0,
+        100% var(--gap),
+        100% calc(100% - var(--gap)),
+        0% 100%
+      );
+    }
   }
   // Trapezoid-Section CSS ↑
 
@@ -173,9 +249,14 @@ body > section {
     left: 0;
     height: calc(100% + var(--gap));
     background-image: linear-gradient(
-      rgba($COLOR_THEME, 0.1),
-      rgba($COLOR_ACCE, 0.2)
-    );
+        rgba($COLOR_THEME, 0.1),
+        rgba($COLOR_ACCE, 0.2)
+      ),
+      repeating-linear-gradient(
+        transparent 0 2px,
+        rgba($COLOR_BASE, 0.5) 2px 6px
+      );
+    filter: blur(1px);
     backdrop-filter: blur(4px) grayscale(100%);
     z-index: 0;
     clip-path: polygon(
@@ -184,6 +265,14 @@ body > section {
       100% calc(100% - var(--gap)),
       0% 100%
     );
+    @media (min-width: $WIDTH_TAB) {
+      clip-path: polygon(
+        0 var(--gap),
+        100% 0,
+        100% 100%,
+        0% calc(100% - var(--gap))
+      );
+    }
   }
   > * {
     z-index: 1;
@@ -196,6 +285,11 @@ body > section {
     line-height: 1.4;
     color: $COLOR_MAIN;
     text-shadow: 0 0 8px rgba(#000, 0.2);
+    @media (min-width: $WIDTH_TAB) {
+      margin-top: 64px;
+      font-size: 48px;
+      padding-bottom: 24px;
+    }
     br {
       @media (max-width: 359px) {
         display: none;
@@ -207,7 +301,12 @@ body > section {
       width: 74px;
       bottom: 0;
       background-repeat: no-repeat;
+      background-size: cover;
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20fill%3D%22none%22%20height%3D%228%22%20viewBox%3D%220%200%2074%208%22%20width%3D%2274%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%3E%3ClinearGradient%20id%3D%22a%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%2215.0348%22%20x2%3D%2234.7982%22%20y1%3D%22-.120602%22%20y2%3D%2232.0336%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230fe%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230cf%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20clip-rule%3D%22evenodd%22%20d%3D%22m0%208%204.62-8%204.62%208zm18.48-8-4.62%208-4.62001-8zm4.61%200-4.61%208h9.23zm13.86%200-4.62%208-4.62-8zm4.62%200-4.62%208h9.2399zm13.8599%200-4.62%208-4.62-8zm4.61%200-4.61%208h9.23zm13.86%200-4.62%208-4.62-8z%22%20fill%3D%22url(%23a)%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+      @media (min-width: $WIDTH_TAB) {
+        height: 12px;
+        width: 111px;
+      }
     }
   }
   &:nth-child(even) h2 {
@@ -215,17 +314,27 @@ body > section {
     &::after {
       right: 0;
     }
+    @media (min-width: $WIDTH_TAB) {
+      text-align: left;
+      &::after {
+        left: 0;
+      }
+    }
   }
   &:nth-child(odd) h2 {
     text-align: left;
-    &::after {
-      left: 0;
+    @media (min-width: $WIDTH_TAB) {
+      text-align: right;
+      &::after {
+        right: 0;
+      }
     }
   }
   p {
     margin-top: 24px;
     color: rgba($COLOR_MAIN, 0.9);
     font-weight: 300;
+    max-width: 400px;
   }
 }
 .free {
@@ -235,6 +344,13 @@ body > section {
     max-width: initial;
     opacity: 0.4;
     filter: drop-shadow(0 0 3px $COLOR_MAIN);
+    @media (min-width: $WIDTH_TAB) {
+      position: absolute;
+      height: 360px;
+      width: auto;
+      right: calc(50% - 400px);
+      top: 64px;
+    }
     path {
       stroke: $COLOR_MAIN;
     }
@@ -248,11 +364,22 @@ body > section {
   }
 }
 .cross-device {
+  picture {
+    @media (min-width: $WIDTH_TAB) {
+      position: absolute;
+      left: calc(50% - 432px);
+      top: 68px;
+    }
+  }
   img {
     width: calc(100% + 64px);
     max-width: initial;
     height: auto;
     margin: 32px -32px 8px;
+    @media (min-width: $WIDTH_TAB) {
+      margin: 0;
+      width: 432px;
+    }
   }
   &::before {
     opacity: 0.2;
@@ -272,12 +399,24 @@ body > section {
   }
 }
 .book {
+  picture {
+    @media (min-width: $WIDTH_TAB) {
+      position: absolute;
+      left: calc(50% - 320px);
+      top: 72px;
+    }
+  }
   img {
     width: 120px;
     height: auto;
     margin: 32px calc(50% - 60px) 8px;
     border: 2px solid $COLOR_MAIN;
     box-shadow: 2px 8px 24px rgba($COLOR_BASE, 0.8);
+    @media (min-width: $WIDTH_TAB) {
+      margin: 0;
+      width: 200px;
+      border-width: 4px;
+    }
   }
   p + p {
     margin-top: 8px;
@@ -298,6 +437,9 @@ body > section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (min-width: $WIDTH_TAB) {
+    margin: 128px 0 96px;
+  }
   h2 svg {
     height: 32px;
     width: auto;
@@ -345,29 +487,61 @@ body > section {
   }
   .fix-cta {
     position: fixed;
-    bottom: 36px;
-    left: 32px;
-    z-index: 999;
-    width: calc(100vw - 64px);
-    height: 48px;
-    line-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $COLOR_THEME;
-    font-weight: bold;
-    font-size: 16px;
     color: rgba($COLOR_BASE, 0.8);
     letter-spacing: 0.4em;
-    border-radius: 16px;
-    box-shadow: 0 0 16px rgba($COLOR_THEME, 0.6);
+    display: flex;
+    background: $COLOR_THEME;
+    z-index: 999;
+    font-weight: bold;
+    font-size: 16px;
+    @media (max-width: #{$WIDTH_TAB - 1}) {
+      align-items: center;
+      justify-content: center;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100vw - 64px);
+      max-width: 320px;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 16px;
+      box-shadow: 0 0 16px rgba($COLOR_THEME, 0.6);
+    }
+    @media (min-width: $WIDTH_TAB) {
+      justify-content: flex-end;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      width: 480px;
+      height: 160px;
+      padding-top: 28px;
+      background: rgba($COLOR_MAIN, 0.05);
+      backdrop-filter: blur(12px);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      text-align: right;
+      &::before {
+        @include BEFORE_AFTER;
+        width: 360px;
+        height: 120px;
+        background: $COLOR_THEME;
+        top: inherit;
+        right: inherit;
+        clip-path: inherit;
+        z-index: -1;
+      }
+    }
     svg {
       fill: rgba($COLOR_BASE, 0.4);
-      margin: -3px -16px 0 8px;
+      margin: -2px -16px 0 8px;
+      @media (min-width: $WIDTH_TAB) {
+        margin: -2px 28px 0 8px;
+      }
     }
     &:hover {
       letter-spacing: 0.5em;
-      bottom: 34px;
+      bottom: 40px;
+      @media (min-width: $WIDTH_TAB) {
+      }
     }
   }
 }
