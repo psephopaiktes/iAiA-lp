@@ -187,7 +187,7 @@
       top: 48px;
       left: 48px;
     }
-    li:nth-child(2) {
+    li:nth-of-type(2) {
       margin: 26px 0 0 -8px;
     }
     a {
@@ -246,10 +246,10 @@ body > section {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    &:nth-child(odd) {
+    &:nth-of-type(even) {
       align-items: flex-end;
     }
-    &:nth-child(even) {
+    &:nth-of-type(odd) {
       align-items: flex-start;
     }
   }
@@ -264,7 +264,7 @@ body > section {
     background-position: center;
     background-size: cover;
   }
-  &:nth-child(odd)::before {
+  &:nth-of-type(odd)::before {
     clip-path: polygon(
       0 0,
       100% var(--gap),
@@ -280,7 +280,7 @@ body > section {
       );
     }
   }
-  &:nth-child(even)::before {
+  &:nth-of-type(even)::before {
     clip-path: polygon(
       0 var(--gap),
       100% 0,
@@ -301,7 +301,7 @@ body > section {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
     "Noto Sans JP", "Noto Sans CJK JP", "Meiryo", "メイリオ", "Segoe UI",
     sans-serif;
-  &:nth-child(odd)::after {
+  &:nth-of-type(odd)::after {
     @include BEFORE_AFTER;
     top: calc(-0.5 * var(--gap));
     left: 0;
@@ -367,7 +367,7 @@ body > section {
       }
     }
   }
-  &:nth-child(even) h2 {
+  &:nth-of-type(even) h2 {
     text-align: right;
     &::after {
       right: 0;
@@ -379,7 +379,7 @@ body > section {
       }
     }
   }
-  &:nth-child(odd) h2 {
+  &:nth-of-type(odd) h2 {
     text-align: left;
     @media (min-width: $WIDTH_TAB) {
       text-align: right;
@@ -521,10 +521,10 @@ body > section {
   }
   .link-list {
     margin-top: 24px;
-    li:nth-child(2) {
+    li:nth-of-type(2) {
       margin: -14px 0 0 117px;
     }
-    li:nth-child(3) {
+    li:nth-of-type(3) {
       margin-top: -12px;
     }
     a {
