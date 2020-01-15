@@ -1,5 +1,27 @@
 @import "foundation";
 
+// ↓ alpha description CSS
+#alpha {
+  background: #900;
+  width: 100vw;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 24px 32px;
+  color: #fff;
+  @media (min-width: $WIDTH_SP) {
+  }
+  h2 {
+    line-height: 2;
+  }
+  svg {
+    fill: #fff;
+    width: 24px;
+    margin-right: 0.5em;
+    vertical-align: -0.2em;
+  }
+}
+// ↑ alpha description CSS
+
 .global-header {
   position: relative;
   height: 480px;
@@ -317,7 +339,7 @@ body > section {
     margin-top: 0;
     padding-bottom: 20px;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1.4;
     color: $COLOR_MAIN;
     text-shadow: 0 0 8px rgba(#000, 0.2);
