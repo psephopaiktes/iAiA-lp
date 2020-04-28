@@ -1,9 +1,3 @@
-div#alpha
-  h2
-    include img/warning.svg
-    | ご注意
-  | iAiAは現在アルファ版です。記載されている内容には誤りがある可能性があります。また登録したアカウントやデータは予告なく削除される場合があります。
-
 header.global-header
   .keyart#js-keyart
   .logos
@@ -32,13 +26,13 @@ section.js-reveal.tools-free
   h2 ダイスも<br>キャラクターシートも<br>必要ありません
   p プレイヤーとストーリーさえ揃えばすぐにセッション開始。キャラクター作成もあっという間です。
 
-section.js-reveal.book
-  h2 公式ルールブックの<br>最新版に対応
-  picture
-    source(srcset="img/sp/book.jpg" media="(max-width: 480px)")
-    img( src="img/pc/book.jpg" alt="新クトゥルフ神話TRPG ルールブック")
-  p iAiAはケイオシアム社の公式ルールに準拠して作成されています。令和1年に発売された「新クトゥルフ神話TRPG ルールブック」に対応ずみです。
-  p: a(href="https://amzn.to/39DU9ta" target="_brank"): i 画像出典: サンディ・ピーターセン, ポール・フリッカー, ほか (2019). 新クトゥルフ神話TRPG ルールブック KADOKAWA
+//- section.js-reveal.book
+//-   h2 公式ルールブックの<br>最新版に対応
+//-   picture
+//-     source(srcset="img/sp/book.jpg" media="(max-width: 480px)")
+//-     img( src="img/pc/book.jpg" alt="新クトゥルフ神話TRPG ルールブック")
+//-   p iAiAはケイオシアム社の公式ルールに準拠して作成されています。令和1年に発売された「新クトゥルフ神話TRPG ルールブック」に対応ずみです。
+//-   p: a(href="https://amzn.to/39DU9ta" target="_brank"): i 画像出典: サンディ・ピーターセン, ポール・フリッカー, ほか (2019). 新クトゥルフ神話TRPG ルールブック KADOKAWA
 
 footer.global-footer
   h2: include img/logo-short.svg
@@ -46,7 +40,7 @@ footer.global-footer
     li: a(href="/help") あそびかた
     li: a(href="https://twitter.com/iAiAapp" target="_brank") Twitter
     li: a(href="https://github.com/psephopaiktes/iAiA" target="_brank") GitHub
-  p.copyright: small © iAiA 2020
+  p.copyright: small © iAiA
   a#js-fix-cta.fix-cta(href='/login')
     span START
     include img/play_arrow.svg

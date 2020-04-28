@@ -1,27 +1,5 @@
 @import "foundation";
 
-// ↓ alpha description CSS
-#alpha {
-  background: #900;
-  width: 100vw;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 24px 32px;
-  color: #fff;
-  @media (min-width: $WIDTH_SP) {
-  }
-  h2 {
-    line-height: 2;
-  }
-  svg {
-    fill: #fff;
-    width: 24px;
-    margin-right: 0.5em;
-    vertical-align: -0.2em;
-  }
-}
-// ↑ alpha description CSS
-
 .global-header {
   position: relative;
   height: 480px;
@@ -238,7 +216,7 @@ body > section {
   padding: 0 48px 32px;
   position: relative;
   @media (min-width: $WIDTH_SP) {
-    margin-top: 24px;
+    margin-top: 48px;
     padding: 0 calc(50% - 180px) 48px;
   }
   @media (min-width: $WIDTH_TAB) {
@@ -264,7 +242,7 @@ body > section {
     background-position: center;
     background-size: cover;
   }
-  &:nth-of-type(odd)::before {
+  &:nth-of-type(even)::before {
     clip-path: polygon(
       0 0,
       100% var(--gap),
@@ -280,7 +258,7 @@ body > section {
       );
     }
   }
-  &:nth-of-type(even)::before {
+  &:nth-of-type(odd)::before {
     clip-path: polygon(
       0 var(--gap),
       100% 0,
@@ -301,7 +279,7 @@ body > section {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
     "Noto Sans JP", "Noto Sans CJK JP", "Meiryo", "メイリオ", "Segoe UI",
     sans-serif;
-  &:nth-of-type(odd)::after {
+  &:nth-of-type(even)::after {
     @include BEFORE_AFTER;
     top: calc(-0.5 * var(--gap));
     left: 0;
@@ -345,8 +323,9 @@ body > section {
     text-shadow: 0 0 8px rgba(#000, 0.2);
     @media (min-width: $WIDTH_TAB) {
       margin-top: 64px;
-      font-size: 48px;
+      font-size: 40px;
       padding-bottom: 24px;
+      width: 400px;
     }
     br {
       @media (max-width: 359px) {
@@ -367,7 +346,7 @@ body > section {
       }
     }
   }
-  &:nth-of-type(even) h2 {
+  &:nth-of-type(odd) h2 {
     text-align: right;
     &::after {
       right: 0;
@@ -379,7 +358,7 @@ body > section {
       }
     }
   }
-  &:nth-of-type(odd) h2 {
+  &:nth-of-type(even) h2 {
     text-align: left;
     @media (min-width: $WIDTH_TAB) {
       text-align: right;
@@ -396,6 +375,9 @@ body > section {
   }
 }
 .free {
+  @media (min-width: $WIDTH_TAB) {
+    margin-top: 24px;
+  }
   svg {
     margin: -64px -32px -72px;
     width: calc(100% + 64px);
@@ -471,38 +453,38 @@ body > section {
     }
   }
 }
-.book {
-  picture {
-    @media (min-width: $WIDTH_TAB) {
-      position: absolute;
-      left: calc(50% - 320px);
-      top: 72px;
-    }
-  }
-  img {
-    width: 120px;
-    height: auto;
-    margin: 32px calc(50% - 60px) 8px;
-    border: 2px solid $COLOR_MAIN;
-    box-shadow: 2px 8px 24px rgba($COLOR_BASE, 0.8);
-    @media (min-width: $WIDTH_TAB) {
-      margin: 0;
-      width: 200px;
-      border-width: 4px;
-    }
-  }
-  p + p {
-    margin-top: 8px;
-    opacity: 0.5;
-  }
-  &::before {
-    opacity: 0.2;
-    background-image: url(../img/sp/book.jpg);
-    @media (min-width: $WIDTH_SP) {
-      background-image: url(../img/pc/book.jpg);
-    }
-  }
-}
+// .book {
+//   picture {
+//     @media (min-width: $WIDTH_TAB) {
+//       position: absolute;
+//       left: calc(50% - 320px);
+//       top: 72px;
+//     }
+//   }
+//   img {
+//     width: 120px;
+//     height: auto;
+//     margin: 32px calc(50% - 60px) 8px;
+//     border: 2px solid $COLOR_MAIN;
+//     box-shadow: 2px 8px 24px rgba($COLOR_BASE, 0.8);
+//     @media (min-width: $WIDTH_TAB) {
+//       margin: 0;
+//       width: 200px;
+//       border-width: 4px;
+//     }
+//   }
+//   p + p {
+//     margin-top: 8px;
+//     opacity: 0.5;
+//   }
+//   &::before {
+//     opacity: 0.2;
+//     background-image: url(../img/sp/book.jpg);
+//     @media (min-width: $WIDTH_SP) {
+//       background-image: url(../img/pc/book.jpg);
+//     }
+//   }
+// }
 
 .global-footer {
   margin: 96px 0 128px;
